@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MARVEL MODS — Скоро</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="coming-soon">
+
+        <!-- ЛОГОТИП -->
+        <img src="images/logo.png" alt="MARVEL MODS" class="logo">
+
+        <!-- ЗАГОЛОВОК -->
+        <h1>САЙТ СКОРО ВЫЙДЕТ</h1>
+
+        <p class="subtitle">
+            Большой каталог Minecraft-модов уже в разработке
+        </p>
+
+        <!-- ТАЙМЕР -->
+        <div class="timer" id="timer">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>ДНЕЙ</small>
+            </div>
+
+            <div class="colon">:</div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>ЧАСОВ</small>
+            </div>
+
+            <div class="colon">:</div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>МИНУТ</small>
+            </div>
+
+            <div class="colon">:</div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>СЕКУНД</small>
+            </div>
+
+        </div>
+
+        <!-- СОЦСЕТИ -->
+        <div class="socials">
+
+            <a
+                href="https://www.tiktok.com/@n1x334?_r=1&_t=ZS-99j7qGqL2f7"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social tiktok"
+            >
+                TikTok
+            </a>
+
+            <a
+                href="https://t.me/n1x991"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social telegram"
+            >
+                Telegram
+            </a>
+
+        </div>
+
+        <p class="bottom-text">
+            Следи за новостями, чтобы не пропустить запуск
+        </p>
+
+    </main>
+
+
+    <script>
+
+        // Дата выхода сайта
+        const launchDate = new Date("2026-11-20T00:00:00");
+
+        function updateTimer() {
+
+            const now = new Date();
+            const difference = launchDate - now;
+
+            if (difference <= 0) {
+
+                document.getElementById("timer").innerHTML =
+                    '<div class="released">САЙТ УЖЕ ДОСТУПЕН!</div>';
+
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+            const hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+            const minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            const seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+        }
+
+        updateTimer();
+
+        setInterval(updateTimer, 1000);
+
+    </script>
+
+</body>
+</html>
